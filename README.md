@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/yusukemisa/registMember.svg?style=svg)](https://circleci.com/gh/yusukemisa/registMember)
+
 ## registMember
 TODO: Write your project about
 
