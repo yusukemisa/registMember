@@ -67,7 +67,7 @@ func (h UserHandler) handlePost(w http.ResponseWriter, r *http.Request) error {
 		return userTemplate.Execute(w, params)
 	}
 
-	if p, err := hash(passWord); err != nil {
+	if p, err := Hash(passWord); err != nil {
 		return err
 	} else {
 		passWord = p
@@ -97,7 +97,7 @@ func (h UserHandler) handlePost(w http.ResponseWriter, r *http.Request) error {
 	return userTemplate.Execute(w, params)
 }
 
-func hash(in string) (string, error) {
+func Hash(in string) (string, error) {
 	s := sha256.New()
 	if _, err := s.Write([]byte(in)); err != nil {
 		return "", errors.Wrap(err, "failed to write")
