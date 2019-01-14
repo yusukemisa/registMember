@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ajusa/lit@latest/dist/lit.css" />
+    <meta charset="UTF-8">
+    <title>registMember</title>
+</head>
+<body>
+
+{{with .Notice}}<div id="notice">{{.}}</div>{{end}}
+
+<form action="/" method="post">
+    <div>Name: <input name="name" value="{{.Name}}"></div>
+    <div>Message: <input name="message"></div>
+    <input type="submit">
+</form>
+
+{{ range .Posts }}
+<div>
+    <div>------------------------------------------------------------------------------------------</div>
+    <div>Date: {{ .Posted }}</div>
+    <div>Name: {{ .Author }}</div>
+    <div>Message: {{ .Message }}</div>
+</div>
+{{ end }}
+</body>
+</html>
