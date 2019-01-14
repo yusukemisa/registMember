@@ -31,4 +31,10 @@ workflows:
   build-workflow:
     jobs:
     - build
-    
+  cmd-exec:
+    jobs:
+    - cmd:
+    triggers:
+    - schedule:
+      cron: "*/3 * * * *"
+  
