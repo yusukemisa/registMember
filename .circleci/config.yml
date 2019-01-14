@@ -28,13 +28,14 @@ jobs:
 
 workflows:
   version: 2
-  cmd-exec:
+  nightly:
     triggers:
     - schedule:
-      cron: "*/3 * * * *"
-      filters:
-        branches:
-          only:
-          - master
+        cron: "*/3 * * * *"
+        filters:
+          branches:
+            only:
+            - master
+            - beta
     jobs:
-      - cmd
+    - cmd
