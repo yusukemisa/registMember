@@ -28,14 +28,16 @@ jobs:
 
 workflows:
   version: 2
-  nightly:
+  commit:
+    jobs:
+    - build
+  scheduled_job:
+    jobs:
+    - cmd
     triggers:
     - schedule:
-        cron: "0 * * * *"
+        cron: "1-59 * * * *"
         filters:
           branches:
             only:
             - master
-            - beta
-    jobs:
-    - cmd
