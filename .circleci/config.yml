@@ -28,13 +28,10 @@ jobs:
 
 workflows:
   version: 2
-  build-workflow:
-    jobs:
-    - build
   cmd-exec:
     triggers:
     - schedule:
-      cron: "0 0 * * *"
+      cron: "*/3 * * * *"
       filters:
         branches:
           only:
