@@ -32,13 +32,13 @@ workflows:
     jobs:
     - build:
 
-    cmd-exec:
-      jobs:
-      - cmd:
-      triggers:
+  cmd-exec:
+    jobs:
+    - cmd:
+    triggers:
       - schedule:
         cron: "*/3 * * * *" # 03:00 JST
-          filters:
-            branches:
-              only:
-              - master
+        filters:
+          branches:
+            only:
+            - master
