@@ -21,16 +21,18 @@ jobs:
     - checkout
 
     # specify any bash command here prefixed with `run: `
-    - run: echo 'START CMD'
-    - run: go get -v -t -d ./...
     - run:
-        name: Set environment variables
+        name: Get command
+        command: |
+          go get -v -t -d ./...
+    - run:
+        name: Exec command
         environment:
           ProjectID: my-book-shelf-50355
         command: |
           echo ${GCP_CREDENTIALS_JSON} | base64 --decode > ${GCP_CREDENTIALS}
-    - run: go run -v cmd/batch/user/addUser.go
-    - run: echo 'END CMD'
+          go run -v cmd/batch/user/addUser.go
+          echo 'END CMD'
 
 workflows:
   version: 2
